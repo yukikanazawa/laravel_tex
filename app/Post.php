@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function index(Post $post)
+    public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $post->get();
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
