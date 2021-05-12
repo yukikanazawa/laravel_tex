@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+
 use App\Post;
-use App\Http\Request\PostRequest;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -22,5 +21,12 @@ class PostController extends Controller
     public function create()
     {
         return view('create');
+    }
+    
+    public function store(Post $post, PostRequest $request)
+    {
+        $input = $request['post'];
+        $post->fill($input)->save();
+        return redirect('/posts/' . $post->id);
     }
 }
