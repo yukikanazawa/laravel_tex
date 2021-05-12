@@ -10,6 +10,7 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
+<<<<<<< HEAD
         return view('index')->with(['posts' => $post->getPaginateByLimit(10)]);
     }
     
@@ -42,4 +43,8 @@ class PostController extends Controller
 
         return redirect('/posts/' . $post->id);
     }
+=======
+        return view('index')->with(['posts' => $post->getPaginateByLimit()]);
+    } 
+>>>>>>> master
 }
