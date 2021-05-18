@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-<<<<<<< HEAD
 Route::get('/', function() {return view('index');});
 
 
@@ -19,8 +18,6 @@ Route::get('/', 'PostController@index');
 Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
+Route::delete('/posts/{post}', 'PostController@destroy');
 Route::get('/posts/{post}' , 'PostController@show');
 Route::post('/posts', 'PostController@store');
-=======
-Route::get('/', 'PostController@index');
->>>>>>> master

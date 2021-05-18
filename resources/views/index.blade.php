@@ -18,12 +18,6 @@
                 </div>
             @endforeach
         </div>
-<<<<<<< HEAD
         <div class='paginate'>{{ $posts->links() }}</div>
-=======
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
->>>>>>> master
     </body>
 </html>
