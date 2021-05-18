@@ -9,12 +9,28 @@
     </head>
     <body>
         <h1>Blog Name</h1>
-        <p class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+        <button class="edit">[<a href="/posts/{{ $post->id }}/edit">edit</a>]</button>
+        <form method="POST" action="/posts/{{ $post->id }}" id="form_delete">
+            @csrf
+            @method('DELETE')
+            <input type="submit" style="display:none">
+            <button class='delete'>[<span onclick="return deletePost();">delete</span>]</button>
+        </form>
         <div class='post'>
             <h2 class='title'>{{ $post->title }}</h2>
             <p class='body'>{{ $post->body }}</p>
             <p class='updated_at'>{{ $post->updated_at }}</p>
         </div>
-        <div class='back'>[<a href='/'>back</a>]</div>
+        <button class='back'>[<a href='/'>back</a>]</button>
+        <script>
+        function deletePost(){
+            'use strict';
+            if (confirm('本当に削除しますか？')){
+                document.getElementById('form_delete').submit();
+            } else{
+                return false;    
+            }
+        }
+        </script>
     </body>
 </html>
